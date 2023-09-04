@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.35.2.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 
@@ -25,17 +25,25 @@ source-repository head
 
 library
   exposed-modules:
+      Language.Kaze.AST
+      Language.Kaze.Compiler
+      Language.Kaze.Parser
       Lib
   other-modules:
       Paths_kaze
   hs-source-dirs:
       src
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wmissing-export-lists
   build-depends:
       base >=4.7 && <5
+    , filepath ==1.4.2.2
+    , llvm-hs-pretty ==0.9.0.0
+    , llvm-hs-pure ==9.0.0
+    , megaparsec ==9.5.0
+    , text ==1.2.5.0
   default-language: Haskell2010
 
-executable kaze-exe
+executable kaze
   main-is: Main.hs
   other-modules:
       Paths_kaze
@@ -44,7 +52,12 @@ executable kaze-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , filepath ==1.4.2.2
     , kaze
+    , llvm-hs-pretty ==0.9.0.0
+    , llvm-hs-pure ==9.0.0
+    , megaparsec ==9.5.0
+    , text ==1.2.5.0
   default-language: Haskell2010
 
 test-suite kaze-test
@@ -57,5 +70,10 @@ test-suite kaze-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , filepath ==1.4.2.2
     , kaze
+    , llvm-hs-pretty ==0.9.0.0
+    , llvm-hs-pure ==9.0.0
+    , megaparsec ==9.5.0
+    , text ==1.2.5.0
   default-language: Haskell2010

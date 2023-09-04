@@ -28,6 +28,10 @@ RUN apt-get update \
         zlib1g-dev \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
+# Install latest LLVM
+RUN apt update && apt install -y lsb-release wget software-properties-common gnupg
+RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+
 # Install latest GHCup in the non-root user home
 USER $USERNAME
 
@@ -37,7 +41,7 @@ RUN mkdir -p "$HOME/.ghcup/bin" \
 ENV PATH="/home/$USERNAME/.cabal/bin:/home/$USERNAME/.ghcup/bin:$PATH"
 
 # [Choice] GHC version: recommended, latest, 9.2, 9.0, 8.10, 8.8, 8.6
-ARG GHC_VERSION="recommended"
+ARG GHC_VERSION="9.2.8"
 
 # Use GHCup to install versions of main utilities
 # If you prefer to let the Haskell extension install everything on demand,
