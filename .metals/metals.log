@@ -1,0 +1,32 @@
+2023.09.08 13:51:48 INFO  Started: Metals version 1.0.1 in folders '/Users/i-toru/Workspace/kaze' for client Visual Studio Code 1.81.1.
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+情報: Flyway Community Edition 9.21.2 by Redgate
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.license.VersionPrinter printVersion
+情報: See release notes here: https://rd.gt/416ObMi
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.license.VersionPrinter printVersion
+情報: 
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.FlywayExecutor execute
+情報: Database: jdbc:h2:file:/Users/i-toru/Workspace/kaze/.metals/metals (H2 2.1)
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+情報: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.command.DbValidate validate
+情報: Successfully validated 4 migrations (execution time 00:00.016s)
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+情報: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.command.DbMigrate migrateGroup
+情報: Current version of schema "PUBLIC": << Empty Schema >>
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "1 - Create tables"
+9月 08, 2023 1:51:48 午後 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "2 - Server discovery"
+9月 08, 2023 1:51:49 午後 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+9月 08, 2023 1:51:49 午後 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+9月 08, 2023 1:51:49 午後 org.flywaydb.core.internal.command.DbMigrate logSummary
+情報: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.027s)
+2023.09.08 13:51:49 INFO  time: initialize in 0.67s
+2023.09.08 13:51:52 WARN  Build server is not auto-connectable.
+2023.09.08 13:51:52 WARN  no build tool detected in workspace '/Users/i-toru/Workspace/kaze'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+9月 08, 2023 1:55:28 午後 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+情報: Unsupported notification method: $/setTrace
