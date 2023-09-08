@@ -9,4 +9,4 @@ type token =
   | EOL
 
 val main :
-  (Lexing.lexbuf  -> token) -> Lexing.lexbuf -> int
+  (Lexing.lexbuf  -> token) -> Lexing.lexbuf -> Ast.expr

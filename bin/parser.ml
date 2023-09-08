@@ -90,12 +90,12 @@ let yyact = [|
 # 12 "bin/parser.mly"
                             ( _1 )
 # 93 "bin/parser.ml"
-               : int))
+               : Ast.expr))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : int) in
     Obj.repr(
 # 15 "bin/parser.mly"
-                            ( _1 )
+                            ( VInt (_1) )
 # 100 "bin/parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
@@ -110,7 +110,7 @@ let yyact = [|
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 17 "bin/parser.mly"
-                            ( _1 + _3 )
+                            ( BinaryOp (_1, "+", _3) )
 # 115 "bin/parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
@@ -118,7 +118,7 @@ let yyact = [|
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 18 "bin/parser.mly"
-                            ( _1 - _3 )
+                            ( BinaryOp (_1, "-", _3) )
 # 123 "bin/parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
@@ -126,7 +126,7 @@ let yyact = [|
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 19 "bin/parser.mly"
-                            ( _1 * _3 )
+                            ( BinaryOp (_1, "*", _3) )
 # 131 "bin/parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
@@ -134,14 +134,14 @@ let yyact = [|
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 20 "bin/parser.mly"
-                            ( _1 / _3 )
+                            ( BinaryOp (_1, "/", _3) )
 # 139 "bin/parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 21 "bin/parser.mly"
-                            ( - _2 )
+                            ( UnaryOp ("-", _2) )
 # 146 "bin/parser.ml"
                : 'expr))
 (* Entry main *)
@@ -165,4 +165,4 @@ let yytables =
     Parsing.names_const=yynames_const;
     Parsing.names_block=yynames_block }
 let main (lexfun : Lexing.lexbuf -> token) (lexbuf : Lexing.lexbuf) =
-   (Parsing.yyparse yytables 1 lexfun lexbuf : int)
+   (Parsing.yyparse yytables 1 lexfun lexbuf : Ast.expr)
