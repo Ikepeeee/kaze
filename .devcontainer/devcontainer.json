@@ -1,0 +1,13 @@
+{
+  "name": "OCaml and LLVM",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ocamllabs.ocaml-platform"
+      ]
+    }
+  }
+}
