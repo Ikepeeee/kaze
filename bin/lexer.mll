@@ -18,6 +18,7 @@ rule token = parse
   | '('            { LPAREN1 }
   | ')'            { RPAREN1 }
   | "=>"           { ARROW }
+  | '\\'           { BSLASH }
   (* | '{'            { LPAREN2 }
   | '}'            { RPAREN2 }
   | '['            { LPAREN3 }

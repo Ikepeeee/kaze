@@ -5,10 +5,12 @@
 %token <string> STRING
 %token <string> IDENT
 %token PLUS MINUS TIMES DIV
-%token COMMA ARROW
+%token COMMA ARROW BSLASH
 %token LPAREN1 RPAREN1
 %token EQ
 %token EOL
+%right ARROW
+%left COMMA
 %left PLUS MINUS        /* lowest precedence */
 %left TIMES DIV         /* medium precedence */
 %nonassoc UMINUS        /* highest precedence */
@@ -32,18 +34,18 @@ expr:
   | expr DIV expr           { BinaryOp ($1, "/", $3) }
   | MINUS expr %prec UMINUS { UnaryOp ("-", $2) }
   | IDENT LPAREN1 params RPAREN1 { FuncApp ($1, $3) }
-  | LPAREN1 LPAREN1 args RPAREN1 ARROW expr RPAREN1 { Func ($3, $6) }
+  | BSLASH LPAREN1 args RPAREN1 ARROW expr { Func ($3, $6) }
   | IDENT { Var ($1) }
 ;
 
 params:
-  | expr COMMA params { List.concat([[$1]; $3]) }
+  | params COMMA params { List.concat([$1; $3]) }
   | expr { [$1] }
   | { [] }
 ;
 
 args:
-  | IDENT COMMA args { List.concat([[$1]; $3]) }
+  | args COMMA args { List.concat([$1; $3]) }
   | IDENT { [$1] }
   | { [] }
 ;

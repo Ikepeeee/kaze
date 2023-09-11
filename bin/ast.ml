@@ -16,10 +16,10 @@ let rec showExpr expr = match expr with
   | VInt x -> string_of_int x
   | VFloat x -> string_of_float x
   | VString x -> x
-  | BinaryOp (a, op, b) -> "(" ^ (showExpr a) ^ op ^ (showExpr b) ^ ")"
+  | BinaryOp (a, op, b) -> "(" ^ (showExpr a) ^ " " ^ op ^ " " ^ (showExpr b) ^ ")"
   | UnaryOp (op, a) -> "(" ^ op ^ (showExpr a) ^ ")"
   | FuncApp (name, params) -> name ^ "(" ^ String.concat ", " (List.map showExpr params) ^ ")"
-  | Func (args, body) -> "(" ^ String.concat ", " args ^ ")" ^ " => " ^ showExpr body
+  | Func (args, body) -> "(\\(" ^ String.concat ", " args ^ ")" ^ " => " ^ showExpr body ^ ")"
   | Var name -> name
 
 let showAssign (Assign (name, expr)) = name ^ " = " ^ showExpr expr

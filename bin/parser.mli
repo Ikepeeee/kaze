@@ -10,6 +10,7 @@ type token =
   | DIV
   | COMMA
   | ARROW
+  | BSLASH
   | LPAREN1
   | RPAREN1
   | EQ
